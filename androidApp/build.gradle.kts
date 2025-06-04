@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.devtools.ksp)
 }
 
 android {
@@ -43,4 +44,18 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+
+    // Compose Destination dependencies
+    implementation(libs.compose.destinations.core)
+    ksp(libs.compose.destinations.ksp)
+    implementation(libs.compose.destinations.bottom.sheet)
+
+    // Additional required AndroidX dependencies
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
+    // Accompanist dependencies
+    implementation(libs.accompanist.systemuicontroller)
 }
